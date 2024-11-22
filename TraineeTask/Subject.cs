@@ -35,7 +35,7 @@
             var studentSubjects = subjectList.Where(s => s.StudentId == studentId).ToList();
             if (!studentSubjects.Any())
             {
-                throw new InvalidOperationException($"No subjects found for student with Id {studentId}.");
+                throw new InvalidOperationException(string.Format(ErrorMessages.NoSubjectsFoundForStudent, studentId));
             }
 
             return studentSubjects;

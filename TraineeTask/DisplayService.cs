@@ -2,7 +2,7 @@
 
 namespace TraineeTask
 {
-    public static class Helper
+    public static class DisplayService
     {
         public static void DisplayInfo(List<Student> students, int studentId)
         {
@@ -10,7 +10,7 @@ namespace TraineeTask
 
             if (selectedStudent == null)
             {
-                Console.WriteLine($"Student with Id {studentId} not found.");
+                Console.WriteLine(string.Format(ErrorMessages.StudentNotFound, studentId));
                 return;
             }
 
@@ -38,7 +38,7 @@ namespace TraineeTask
             }
             else
             {
-                subjectsInfo.Append("No subjects");
+                subjectsInfo.Append(ErrorMessages.EmptySubjectsList);
             }
 
             return subjectsInfo.ToString();

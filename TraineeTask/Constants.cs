@@ -6,9 +6,9 @@
         public const int MaxAge = 120;
         public const int MinGrade = 0;
         public const int MaxGrade = 100;
-
-        public static readonly string FileSubjectsPath = "../../../subjects.json";
-
-        public static readonly string FileStudentsPath = "../../../students.json";
+        public const string FileSubjectsPath = "../../../subjects.json";
+        public const string FileStudentsPath = "../../../students.json";
+        public const int RegularGrantThreshold = 60;
+        public const int IncreasedGrantThreshold = 90;
     }
 }

@@ -18,7 +18,7 @@ class Program
                 }
             });
 
-            Helper.DisplayInfo(students, 1); // Info about student with Id-1
+            DisplayService.DisplayInfo(students, 1); // Info about student with Id=1
         }
         catch (ArgumentException ex)
         {
@@ -30,7 +30,7 @@ class Program
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Unexpected error: {ex.Message}");
+            Console.WriteLine($"Unexpected error: {ex.GetType().Name} - {ex.Message}");
         }
     }
 }

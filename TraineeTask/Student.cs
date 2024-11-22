@@ -35,15 +35,16 @@
         // Completing subjects for a student
         public bool SetSubjects(List<Subject> subjectsList)
         {
-            var studentSubjects = subjectsList.Where(s => s.StudentId == Id).ToList();
-            if (!studentSubjects.Any())
+            try
             {
-                Console.WriteLine($"No subjects found for student with Id {Id}.");
+                Subjects = Subject.GetByStudentId(subjectsList, Id);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
                 return false;
             }
-
-            Subjects = studentSubjects;
-            return true;
         }
 
         // Calculating average grade
@@ -51,7 +52,7 @@
         {
             AverageGrade = Subjects.Count > 0
                 ? Math.Round(Subjects.Average(s => s.Grade), 2)
-                : throw new InvalidOperationException("Cannot calculate average grade.");
+                : throw new InvalidOperationException(ErrorMessages.AverageGradeError);
         }
 
         // Setting grant
@@ -59,8 +60,8 @@
         {
             Grant = AverageGrade switch
             {
-                < 60 => Grant.None,
-                < 90 => Grant.Regular,
+                < Constants.RegularGrantThreshold => Grant.None,
+                < Constants.IncreasedGrantThreshold => Grant.Regular,
                 _ => Grant.Increased
             };
         }

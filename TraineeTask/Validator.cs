@@ -9,24 +9,24 @@
             {
                 if (string.IsNullOrWhiteSpace(student.FirstName))
                 {
-                    throw new ArgumentException($"First name cannot be empty.");
+                    throw new ArgumentException(ErrorMessages.EmptyFirstName);
                 }
 
                 if (string.IsNullOrWhiteSpace(student.SecondName))
                 {
-                    throw new ArgumentException($"Second name cannot be empty.");
+                    throw new ArgumentException(ErrorMessages.EmptySecondName);
                 }
 
                 if (student.Age < Constants.MinAge || student.Age > Constants.MaxAge)
                 {
-                    throw new ArgumentException($"Age must be between {Constants.MinAge} and {Constants.MaxAge}.");
+                    throw new ArgumentException(string.Format(ErrorMessages.InvalidAge, Constants.MinAge, Constants.MaxAge));
                 }
             }
 
             // Student Id validation
             if (students.GroupBy(s => s.Id).Any(g => g.Count() > 1))
             {
-                throw new InvalidOperationException("Duplicate student Id detected.");
+                throw new InvalidOperationException(ErrorMessages.DuplicateStudentId);
             }
         }
 
@@ -37,19 +37,19 @@
             {
                 if (string.IsNullOrWhiteSpace(subject.Name))
                 {
-                    throw new ArgumentException("Subject name cannot be empty.");
+                    throw new ArgumentException(ErrorMessages.EmptySubjectName);
                 }
 
                 if (subject.Grade < Constants.MinGrade || subject.Grade > Constants.MaxGrade)
                 {
-                    throw new ArgumentException($"Grade must be between {Constants.MinGrade} and {Constants.MaxGrade}.");
+                    throw new ArgumentException(string.Format(ErrorMessages.InvalidGrade, Constants.MinGrade, Constants.MaxGrade));
                 }
             }
 
             // Subjects Id validation
             if (subjects.GroupBy(s => s.Id).Any(g => g.Count() > 1))
             {
-                throw new InvalidOperationException("Duplicate subject Id detected.");
+                throw new InvalidOperationException(ErrorMessages.DuplicateSubjectId);
             }
         }
     }
