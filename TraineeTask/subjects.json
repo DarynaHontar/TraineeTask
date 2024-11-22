@@ -1,0 +1,37 @@
+[
+  {
+    "Id": 1,
+    "Name": "Math",
+    "StudentId": 1,
+    "Grade": 65,
+    "Date": "2024-11-22T00:00:00Z"
+  },
+  {
+    "Id": 2,
+    "Name": "Physics",
+    "StudentId": 1,
+    "Grade": 75,
+    "Date": "2024-11-22T00:00:00Z"
+  },
+  {
+    "Id": 3,
+    "Name": "Literature",
+    "StudentId": 2,
+    "Grade": 83,
+    "Date": "2024-11-22T00:00:00Z"
+  },
+  {
+    "Id": 4,
+    "Name": "History",
+    "StudentId": 2,
+    "Grade": 90,
+    "Date": "2024-11-22T00:00:00Z"
+  },
+  {
+    "Id": 5,
+    "Name": "Biology",
+    "StudentId": 1,
+    "Grade": 95,
+    "Date": "2024-11-22T00:00:00Z"
+  }
+]
